@@ -1,0 +1,7 @@
+:root {
+  --cx-bg: #060b16; --cx-bg-raised: #0c1424; --cx-bg-sunken: #03060d;
+  --cx-fg: #f5f7fb; --cx-fg-muted: #9aa6ba; --cx-line: #1c2740;
+  --cx-accent: #19d3b0; --cx-accent-fg: #03140f;
+  --cx-gain: #2fd08a; --cx-loss: #f0616d;
+  --cx-radius: 8px;
+}
