@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: { default: `${siteConfig.name} | ${siteConfig.tagline}`, template: `%s | ${siteConfig.name}` },
   description: "Crypto spot and futures trader evaluations built around transparent rules and risk management.",
-  openGraph: { title: siteConfig.name, description: siteConfig.tagline, type: "website" },
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.tagline,
+    type: "website",
+    images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: `${siteConfig.name} logo` }],
+  },
 };
 export const viewport: Viewport = { themeColor: "#060b16" };
 

@@ -1,7 +1,17 @@
+/* Capitryx design tokens. Brand blue/silver is sampled from the official logo. */
 :root {
+  /* surfaces */
   --cx-bg: #060b16; --cx-bg-raised: #0c1424; --cx-bg-sunken: #03060d;
-  --cx-fg: #f5f7fb; --cx-fg-muted: #9aa6ba; --cx-line: #1c2740;
-  --cx-accent: #19d3b0; --cx-accent-fg: #03140f;
+  /* text */
+  --cx-fg: #f5f7fb; --cx-fg-muted: #9aa6ba;
+  --cx-silver: #ced5e2;
+  /* borders */
+  --cx-line: #1c2740;
+  /* brand accent (logo blue). White text on --cx-accent passes AA (about 5:1). */
+  --cx-accent: #0a64f0; --cx-accent-hover: #2b7bff; --cx-accent-fg: #ffffff;
+  --cx-accent-text: #5aa2ff; /* accent for text/links on dark surfaces */
+  --cx-glow: #0188f5;
+  /* market colors: ONLY for gains/losses, never rely on color alone */
   --cx-gain: #2fd08a; --cx-loss: #f0616d;
   --cx-radius: 8px;
 }
