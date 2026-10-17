@@ -49,7 +49,7 @@ export function MobileMenu() {
       </button>
 
       {open && (
-        <div id={panelId} className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-line bg-bg px-4 py-6 shadow-pop">
+        <div id={panelId} className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-line bg-bg-raised px-4 py-6 shadow-pop">
           <nav aria-label="Mobile">
             <NavLinks orientation="vertical" onNavigate={() => setOpen(false)} />
             <div className="mt-6 border-t border-line pt-6">

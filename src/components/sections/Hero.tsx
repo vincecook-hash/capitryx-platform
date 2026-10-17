@@ -15,8 +15,8 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="bg-grid border-b border-line">
       <Container className="py-12 sm:py-16 lg:py-20">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-          <div>
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-14">
+          <div className="min-w-0">
             <Badge tone="accent">Crypto spot and futures evaluations</Badge>
             <h1 id="hero-title" className="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               Prove your edge across crypto markets.
@@ -35,7 +35,7 @@ export function Hero() {
               </ButtonLink>
             </div>
 
-            <ul className="mt-10 grid gap-5 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+            <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {benefits.map(({ icon: Icon, title, text }) => (
                 <li key={title}>
                   <Icon aria-hidden size={20} className="text-accent-text" />

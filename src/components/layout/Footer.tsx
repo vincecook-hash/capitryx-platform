@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-line bg-bg-sunken">
       <Container className="py-12">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))]">
           <div>
             <Link href="/" aria-label={`${siteConfig.name} home`}>
               <Logo variant="horizontal" height={30} />

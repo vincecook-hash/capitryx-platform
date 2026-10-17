@@ -16,7 +16,7 @@ export function MarketPanel() {
   const ids = tabIds("market", market.id);
 
   return (
-    <div className="rounded-lg border border-line bg-bg-raised p-4 shadow-card sm:p-6">
+    <div className="min-w-0 rounded-lg border border-line bg-bg-raised p-4 shadow-card sm:p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Tabs items={tabs} value={active} onChange={setActive} label="Market" idPrefix="market" />
         <Badge tone="demo">Illustrative · {CANDLE_INTERVAL_LABEL} candles</Badge>

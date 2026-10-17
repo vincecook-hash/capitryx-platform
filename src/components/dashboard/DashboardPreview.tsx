@@ -7,9 +7,9 @@ import { ProgressMeter } from "./ProgressMeters";
 
 function Metric({ label, value, tone }: { label: string; value: string; tone?: "gain" | "loss" }) {
   return (
-    <div className="rounded border border-line bg-bg-sunken p-3 sm:p-4">
+    <div className="min-w-0 rounded border border-line bg-bg-sunken p-3 sm:p-4">
       <dt className="text-xs text-fg-muted">{label}</dt>
-      <dd className={cn("tabular mt-1 font-mono text-lg font-semibold sm:text-xl", tone === "gain" && "text-gain", tone === "loss" && "text-loss")}>{value}</dd>
+      <dd className={cn("tabular mt-1 break-words font-mono text-lg font-semibold sm:text-xl", tone === "gain" && "text-gain", tone === "loss" && "text-loss")}>{value}</dd>
     </div>
   );
 }
@@ -34,9 +34,9 @@ export function DashboardPreview() {
         </div>
       </div>
 
-      <div className="grid gap-6 p-4 sm:p-6 lg:grid-cols-[1fr_1.1fr]">
-        <div className="space-y-6">
-          <dl className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 gap-6 p-4 sm:p-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <div className="min-w-0 space-y-6">
+          <dl className="grid grid-cols-1 gap-3 min-[380px]:grid-cols-2">
             <Metric label="Balance" value={formatUsd(v.balanceUsd)} />
             <Metric label="Equity" value={`$${formatPrice(v.equityUsd)}`} />
             <Metric label="Realized P&L" value={formatSignedUsd(v.realizedPnlUsd)} tone={v.realizedPnlUsd >= 0 ? "gain" : "loss"} />
@@ -67,7 +67,7 @@ export function DashboardPreview() {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <h3 className="text-sm font-semibold">Open positions</h3>
           <div className="mt-2">
             <PositionsTable positions={v.positions} />

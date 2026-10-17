@@ -17,7 +17,7 @@ export function EvaluationModel() {
           You purchase an evaluation attempt. Passing means meeting the published criteria for that program.
         </p>
 
-        <ol className="mt-8 grid gap-4 md:grid-cols-3">
+        <ol className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           {steps.map((s) => (
             <li key={s.n} className="rounded-lg border border-line bg-bg-raised p-5">
               <span className="tabular font-mono text-sm text-accent-text">{s.n}</span>
