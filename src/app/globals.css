@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
-body { background: var(--cx-bg); color: var(--cx-fg); }
-:focus-visible { outline: 2px solid var(--cx-accent); outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@layer base {
+  html { color-scheme: dark; scroll-behavior: smooth; }
+  body { background: var(--cx-bg); color: var(--cx-fg); font-family: var(--font-sans); }
+  :focus-visible { outline: 2px solid var(--cx-accent-text); outline-offset: 2px; border-radius: 4px; }
+  ::selection { background: var(--cx-accent); color: var(--cx-accent-fg); }
+}
+
+/* Tabular figures keep prices and market data aligned */
+.tabular { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

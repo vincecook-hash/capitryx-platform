@@ -1,17 +1,25 @@
 /* Capitryx design tokens. Brand blue/silver is sampled from the official logo. */
 :root {
+  /* typography (self-hosted via @fontsource-variable, no third-party requests) */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
   /* surfaces */
   --cx-bg: #060b16; --cx-bg-raised: #0c1424; --cx-bg-sunken: #03060d;
   /* text */
-  --cx-fg: #f5f7fb; --cx-fg-muted: #9aa6ba;
-  --cx-silver: #ced5e2;
+  --cx-fg: #f5f7fb; --cx-fg-muted: #9aa6ba; --cx-silver: #ced5e2;
   /* borders */
-  --cx-line: #1c2740;
+  --cx-line: #1c2740; --cx-line-strong: #2a3a5c;
   /* brand accent (logo blue). White text on --cx-accent passes AA (about 5:1). */
   --cx-accent: #0a64f0; --cx-accent-hover: #2b7bff; --cx-accent-fg: #ffffff;
   --cx-accent-text: #5aa2ff; /* accent for text/links on dark surfaces */
   --cx-glow: #0188f5;
-  /* market colors: ONLY for gains/losses, never rely on color alone */
+  /* market colors: ONLY for gains/losses; always pair with a sign or label */
   --cx-gain: #2fd08a; --cx-loss: #f0616d;
-  --cx-radius: 8px;
+  /* shape + depth */
+  --cx-radius: 8px; --cx-radius-lg: 12px;
+  --cx-shadow-card: 0 1px 0 rgba(255,255,255,0.03) inset, 0 8px 24px rgba(0,0,0,0.35);
+  --cx-shadow-pop: 0 16px 48px rgba(0,0,0,0.5);
+  /* motion */
+  --cx-ease: cubic-bezier(0.2, 0, 0, 1); --cx-duration: 160ms;
 }

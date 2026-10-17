@@ -3,9 +3,13 @@ export type DataStatus = "demo" | "confirmed";
 export type DrawdownType = "static" | "trailing";
 export type DrawdownBasis = "balance" | "equity";
 export type ExecutionEnvironment = "simulated" | "live" | "tbd";
+export type BillingModel = "one_time" | "subscription";
 
-/** A rule value that may not apply or may be undecided by the business owner. */
-export type RuleValue<T> = { status: "set"; value: T } | { status: "not_applicable" } | { status: "tbd" };
+/** A rule that is set, does not apply to this program, or is still undecided by the owner. */
+export type RuleValue<T> =
+  | { status: "set"; value: T }
+  | { status: "not_applicable" }
+  | { status: "tbd" };
 
 export interface EvaluationPhase {
   name: string;
@@ -14,26 +18,45 @@ export interface EvaluationPhase {
   timeLimitDays: RuleValue<number>;
 }
 
+export interface ProgramAddOn {
+  id: string;
+  name: string;
+  description: string;
+  priceUsd: number;
+}
+
 export interface Program {
   id: string;
   name: string;
   category: TradingCategory;
+  /** Evaluation (notional) size. NOT money deposited into the customer's account. */
   accountSizeUsd: number;
-  priceUsd: number; // server is the source of truth at checkout
-  dataStatus: DataStatus; // "demo" until owner confirms
+  /** Display price. The server recomputes it from this config at checkout. */
+  priceUsd: number;
+  /** "demo" until the owner confirms real terms. */
+  dataStatus: DataStatus;
   environment: ExecutionEnvironment;
-  assets: string[]; // e.g. "BTC/USDT"
+  billing: RuleValue<BillingModel>;
+  assets: string[];
+  contractTypes: RuleValue<string[]>;
   phases: EvaluationPhase[];
   dailyDrawdownPct: RuleValue<number>;
   maxDrawdownPct: RuleValue<number>;
   drawdownType: RuleValue<DrawdownType>;
   drawdownBasis: RuleValue<DrawdownBasis>;
-  maxLeverage: RuleValue<number>; // N/A for spot
+  maxLeverage: RuleValue<number>;
   positionSizeLimit: RuleValue<string>;
   tradingFees: RuleValue<string>;
-  fundingCosts: RuleValue<string>; // perpetuals only
+  fundingCosts: RuleValue<string>;
+  liquidationRule: RuleValue<string>;
   holdingRestrictions: RuleValue<string>;
+  consistencyRule: RuleValue<string>;
+  inactivityRule: RuleValue<string>;
+  newsRule: RuleValue<string>;
   profitSharePct: RuleValue<number>;
   payoutSchedule: RuleValue<string>;
+  scalingPlan: RuleValue<string>;
+  retryDiscountPct: RuleValue<number>;
   refundPolicy: RuleValue<string>;
+  addOns: ProgramAddOn[];
 }
