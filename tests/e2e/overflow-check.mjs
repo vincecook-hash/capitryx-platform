@@ -21,7 +21,9 @@ for (const w of widths) {
   const page = await browser.newPage();
   await page.setViewport({ width: w, height: 900, deviceScaleFactor: 1, isMobile: w < 800, hasTouch: w < 800 });
   for (const r of routes) {
-    await page.goto(base + r, { waitUntil: "networkidle0", timeout: 30000 });
+    await page.goto(base + r, { waitUntil: "load", timeout: 30000 });
+    await page.evaluate(() => document.fonts.ready);
+    await new Promise((res) => setTimeout(res, 600));
     const res = await page.evaluate(() => {
       const vw = document.documentElement.clientWidth;
       const scrollW = document.documentElement.scrollWidth;

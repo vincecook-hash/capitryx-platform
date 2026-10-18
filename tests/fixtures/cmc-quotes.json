@@ -1,0 +1,14 @@
+{
+  "_note": "Hand-written fixture modeled on CoinMarketCap's documented /v2/cryptocurrency/quotes/latest response. NOT captured from the live API.",
+  "status": { "error_code": 0 },
+  "data": {
+    "BTC": [{ "id": 1, "name": "Bitcoin", "symbol": "BTC", "cmc_rank": 1, "quote": { "USD": { "price": 70123.45, "percent_change_24h": -1.25, "market_cap": 1.38e12 } } }],
+    "WIF": [
+      { "id": 99999, "name": "Fake WIF", "symbol": "WIF", "cmc_rank": null, "quote": { "USD": { "price": 0.0001, "percent_change_24h": 50, "market_cap": 1000 } } },
+      { "id": 28752, "name": "dogwifhat", "symbol": "WIF", "cmc_rank": 140, "quote": { "USD": { "price": 1.9, "percent_change_24h": 4.2, "market_cap": 1.9e9 } } }
+    ],
+    "ETH": { "id": 1027, "name": "Ethereum", "symbol": "ETH", "cmc_rank": 2, "quote": { "USD": { "price": 3500, "percent_change_24h": null, "market_cap": 4.2e11 } } },
+    "SOL": [{ "id": 5426, "name": "Solana", "symbol": "SOL", "cmc_rank": 5, "quote": { "USD": { "price": null, "percent_change_24h": 1, "market_cap": 1 } } }],
+    "XRP": [{ "garbage": true }]
+  }
+}

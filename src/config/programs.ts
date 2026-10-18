@@ -1,6 +1,7 @@
 import type { Program } from "@/types/program";
 import { NOT_APPLICABLE, TBD, set } from "@/lib/rule-value";
 import { formatSizeShort } from "@/lib/utils";
+import { getListedAssets, pairLabel } from "@/lib/assets";
 
 /**
  * SINGLE SOURCE OF TRUTH for programs, pricing and rules.
@@ -23,8 +24,9 @@ type Tier = (typeof tiers)[number];
 
 export const demoAccountSizesUsd: number[] = tiers.map((t) => t.sizeUsd);
 
-const SPOT_ASSETS = ["BTC/USDT", "ETH/USDT", "SOL/USDT", "BNB/USDT", "XRP/USDT"];
-const FUTURES_ASSETS = ["BTC/USDT Perpetual", "ETH/USDT Perpetual", "SOL/USDT Perpetual"];
+// Pair lists come from the asset catalog (src/config/assets.ts), never typed here.
+const SPOT_ASSETS = getListedAssets("spot").map((a) => pairLabel(a, "spot"));
+const FUTURES_ASSETS = getListedAssets("futures").map((a) => pairLabel(a, "futures"));
 
 function slug(sizeUsd: number): string {
   return formatSizeShort(sizeUsd).toLowerCase();

@@ -19,12 +19,22 @@ describe("getRuleRows", () => {
   };
 
   it("shows leverage only for futures", () => {
-    expect(row("leverage", "futures-10k")).toMatchObject({ value: "5x", status: "set" });
+    expect(row("leverage", "futures-10k")).toMatchObject({ value: "5x (lower on higher-risk coins)", status: "set" });
     expect(row("leverage", "spot-10k")).toMatchObject({ value: "Not applicable", status: "not_applicable" });
   });
 
   it("flags undecided policies instead of inventing them", () => {
     expect(row("refund", "spot-5k")).toMatchObject({ value: "To be confirmed", status: "tbd" });
+  });
+
+  it("assigns every row to a group", () => {
+    const p = getProgram("futures-5k");
+    if (!p) throw new Error("missing");
+    const rows = getRuleRows(p);
+    expect(rows.every((r) => ["program", "risk", "trading", "rewards"].includes(r.group))).toBe(true);
+    expect(rows.find((r) => r.id === "daily")?.group).toBe("risk");
+    expect(rows.find((r) => r.id === "refund")?.group).toBe("rewards");
+    expect(rows.find((r) => r.id === "phase0-target")?.group).toBe("program");
   });
 
   it("uses different rules for spot and futures", () => {
