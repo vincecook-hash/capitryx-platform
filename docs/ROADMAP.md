@@ -5,8 +5,10 @@
 - Market data service: CoinMarketCap provider, server-side cache, labeled illustrative fallback, auto-refresh in the browser.
 - Program selector (`/programs`) with category tabs, size picker, grouped rules, pair list, order summary, and checkout hand-off.
 
+- Home page complete: hero, market table, Why Capitryx (Preview/Planned labels), How It Works (4 steps), evaluation model, Spot vs Futures comparison (numbers from config), Trust/transparency, Testimonials (hidden until verified reviews exist), FAQ (20 questions) and final CTA. `/faq` and `/how-it-works` pages.
+
 ## Next
-- Remaining home sections: Why Capitryx, Spot vs Futures comparison, Trading Rules page content, Trust/transparency, FAQ accordion, final CTA.
+- Trading Rules page (`/trading-rules`): full rules with worked drawdown examples, static vs trailing, balance vs equity, bots/API, restricted strategies, prohibited conduct.
 - Spot Trading / Futures Trading landing pages (link into `/programs?category=...`).
 - Full dashboard preview section with spot/futures switcher and recent activity.
 - Authentication (Login), Contact form, draft legal documents.

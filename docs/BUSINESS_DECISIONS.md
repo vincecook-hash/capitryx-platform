@@ -15,3 +15,14 @@
 - [ ] Decide which coins to list, which are spot-only vs perpetual, and each coin's leverage cap (currently demo values).
 - [ ] Pin `cmcId` on any coin whose ticker is shared by several tokens (especially meme coins) so the right one is quoted.
 - [ ] Chart candle data: choose a source (the hero chart is illustrative).
+
+## Content needing owner input (FAQ marks these "Pending owner review")
+- [ ] What exactly a purchase includes (access period, platform access)
+- [ ] Simulated vs live trading environment
+- [ ] What happens on a fail (retry terms) and after a pass (verification steps, reward stage)
+- [ ] Reward share, payout schedule and conditions
+- [ ] Fees and funding costs (demo values: 0.10% spot, 0.05% futures, funding every 8h)
+- [ ] One-time vs subscription billing
+- [ ] Refund policy, payment methods, support channels, identity verification, eligible countries
+- [ ] Verified customer reviews: add to `src/lib/testimonials.ts` (section appears automatically). Never add unverified quotes.
+- [ ] Any verified trust indicators (only add what can be checked)
