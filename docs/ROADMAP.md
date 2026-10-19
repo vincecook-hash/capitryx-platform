@@ -9,10 +9,14 @@
 
 - Trading Rules page (`/trading-rules`): separate spot and futures rules, conduct and policy rules (undecided ones marked TBC with what they will cover), how every limit is calculated, worked examples (static vs trailing, equity vs balance) and an interactive drawdown calculator.
 
+- Spot Trading and Futures Trading landing pages (all numbers read from config), About, Contact (honest: disabled until a message destination exists), Login (honest: no fake form), and the four draft legal documents with highlighted placeholders.
+- Removed the generic `loading.tsx` so every page sends complete, correctly ordered HTML (checked by `tests/e2e/html-order-check.mjs`).
+
 ## Next
-- Spot Trading / Futures Trading landing pages (link into `/programs?category=...`).
 - Full dashboard preview section with spot/futures switcher and recent activity.
-- Authentication (Login), Contact form, draft legal documents.
+- Real authentication and trader accounts (Login is a placeholder page until then).
+- Payment provider integration (checkout fails closed with 503 until one is configured).
+- Contact destination (`src/server/contact/index.ts`) so the form can deliver messages.
 - Live candlestick charts need a separate chart data source (CoinMarketCap OHLCV history is a paid feature); the hero chart is illustrative until then.
 
 ## Adding a new coin

@@ -38,3 +38,10 @@
 - [ ] Whether open (unrealized) profit counts toward the profit target
 - [ ] Review the DRAFT wording for market manipulation, prohibited conduct and program progression with legal advice
 - [ ] Confirm the drawdown method shown (percent of starting size, equity-based, static) or change it in `src/config/programs.ts`
+
+## Contact, accounts and legal
+- [ ] Where contact messages should go (email service, helpdesk). Implement `ContactSink` in `src/server/contact/index.ts`; the form stays disabled until then.
+- [ ] Support channels to list on the Contact page (none are invented).
+- [ ] Trader accounts and sign-in method (the Login page is an honest placeholder).
+- [ ] Company legal name, registered address, and privacy contact, for About, Terms and Privacy.
+- [ ] Have a qualified lawyer review and complete all four legal documents: every `[bracketed]` placeholder must be filled in. Draft pages are set to `noindex` and stay out of the sitemap until reviewed. Remove `robots: { index: false }` from `src/app/legal/*/page.tsx` when they are final.

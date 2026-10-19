@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { CategoryPage } from "@/components/sections/CategoryPage";
+import { categoryPages } from "@/config/category-pages";
 
-export const metadata: Metadata = { title: "Futures Trading" };
-export default function Page() { return <PagePlaceholder title="Futures Trading" />; }
+export const metadata: Metadata = { title: "Futures Trading", description: categoryPages.futures.metaDescription };
+
+export default function FuturesTradingPage() {
+  return <CategoryPage category="futures" />;
+}

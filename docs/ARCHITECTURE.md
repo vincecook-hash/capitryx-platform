@@ -14,3 +14,7 @@
 - `src/server/market-data/` is server-only: `coinmarketcap.ts` (provider), `demo.ts` (labeled fallback), `index.ts` (picks one; never labels demo data as live).
 - `/api/market` serves the snapshot; `useMarketSnapshot` keeps pages fresh. Program pair lists are derived from the catalog.
 - Selection state for `/programs` lives in the URL (`?category=futures&size=25000`) and is validated by `src/lib/selection.ts`.
+
+## Quality checks (run with the site running)
+- `tests/e2e/overflow-check.mjs`: no sideways scrolling at 8 screen widths (needs `puppeteer-core` and `@sparticuz/chromium`, installed with `--no-save`).
+- `tests/e2e/html-order-check.mjs`: raw HTML is complete and ordered (no browser needed). Do not add a root `loading.tsx`: it makes pages stream content after the footer.
