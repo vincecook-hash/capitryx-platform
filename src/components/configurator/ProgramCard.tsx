@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { getRuleRows } from "@/lib/rules";
 import { formatUsd } from "@/lib/utils";
@@ -35,6 +36,15 @@ export function ProgramCard({ program }: { program: Program }) {
           </div>
         ))}
       </dl>
+
+      <p className="mt-5 text-sm">
+        <Link
+          href={`/trading-rules?category=${program.category}&size=${program.accountSizeUsd}`}
+          className="font-medium text-accent-text underline-offset-4 hover:underline"
+        >
+          Full rules and how violations are calculated
+        </Link>
+      </p>
     </section>
   );
 }

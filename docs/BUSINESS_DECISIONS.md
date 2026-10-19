@@ -26,3 +26,15 @@
 - [ ] Refund policy, payment methods, support channels, identity verification, eligible countries
 - [ ] Verified customer reviews: add to `src/lib/testimonials.ts` (section appears automatically). Never add unverified quotes.
 - [ ] Any verified trust indicators (only add what can be checked)
+
+## Trading rules decisions (shown as "To be confirmed" on /trading-rules)
+- [ ] Margin mode for futures: isolated or cross
+- [ ] News-event restrictions
+- [ ] Automated trading / bots, and API trading permissions
+- [ ] Restricted strategies (each needs a clear definition)
+- [ ] Reward eligibility and how rewards are paid
+- [ ] What a breach leads to (fail, retry terms)
+- [ ] When a trading day starts (time zone and cut-off), what counts as a trading day
+- [ ] Whether open (unrealized) profit counts toward the profit target
+- [ ] Review the DRAFT wording for market manipulation, prohibited conduct and program progression with legal advice
+- [ ] Confirm the drawdown method shown (percent of starting size, equity-based, static) or change it in `src/config/programs.ts`

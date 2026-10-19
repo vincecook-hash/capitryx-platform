@@ -4,7 +4,7 @@ import { getRuleRows, RULE_GROUP_LABELS, RULE_GROUP_ORDER } from "@/lib/rules";
 import type { Program } from "@/types/program";
 
 /** Every rule for the selected program, grouped. Undecided policies are shown, never hidden or invented. */
-export function RulesPanel({ program }: { program: Program }) {
+export function RulesPanel({ program, openAll = false }: { program: Program; openAll?: boolean }) {
   const rows = getRuleRows(program);
   return (
     <section aria-labelledby="rules-title">
@@ -18,7 +18,7 @@ export function RulesPanel({ program }: { program: Program }) {
           const groupRows = rows.filter((r) => r.group === group);
           if (groupRows.length === 0) return null;
           return (
-            <details key={group} open={i < 2} className="group rounded-lg border border-line bg-bg-raised">
+            <details key={group} open={openAll || i < 2} className="group rounded-lg border border-line bg-bg-raised">
               <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-semibold sm:px-5">
                 {RULE_GROUP_LABELS[group]}
                 <span aria-hidden className="text-fg-muted transition-transform group-open:rotate-180">⌄</span>

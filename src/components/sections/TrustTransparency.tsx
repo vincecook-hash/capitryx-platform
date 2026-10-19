@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const items: Array<{ icon: LucideIcon; title: string; text: string; link?: { label: string; href: string } }> = [
   { icon: Eye, title: "Rules before you pay", text: "Every program lists its targets, limits, fees and policies up front, including the ones still undecided.", link: { label: "See the programs", href: "/programs" } },
-  { icon: Scale, title: "Calculations you can check", text: "Drawdown limits use stated formulas with worked examples, so you can work out when a limit would be breached.", link: { label: "Read the FAQ", href: "/faq" } },
+  { icon: Scale, title: "Calculations you can check", text: "Drawdown limits use stated formulas with worked examples, so you can work out when a limit would be breached.", link: { label: "See how it works", href: "/trading-rules#how-violations-are-determined" } },
   { icon: FileText, title: "Risk stated plainly", text: "A Risk Disclosure page is linked from every footer. It is currently a draft awaiting legal review.", link: { label: "Open the draft", href: "/legal/risk-disclosure" } },
   { icon: ShieldCheck, title: "Honest numbers", text: "Anything illustrative is labeled illustrative. Market data is marked Live only when it comes from a data provider." },
 ];

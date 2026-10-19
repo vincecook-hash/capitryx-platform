@@ -7,8 +7,9 @@
 
 - Home page complete: hero, market table, Why Capitryx (Preview/Planned labels), How It Works (4 steps), evaluation model, Spot vs Futures comparison (numbers from config), Trust/transparency, Testimonials (hidden until verified reviews exist), FAQ (20 questions) and final CTA. `/faq` and `/how-it-works` pages.
 
+- Trading Rules page (`/trading-rules`): separate spot and futures rules, conduct and policy rules (undecided ones marked TBC with what they will cover), how every limit is calculated, worked examples (static vs trailing, equity vs balance) and an interactive drawdown calculator.
+
 ## Next
-- Trading Rules page (`/trading-rules`): full rules with worked drawdown examples, static vs trailing, balance vs equity, bots/API, restricted strategies, prohibited conduct.
 - Spot Trading / Futures Trading landing pages (link into `/programs?category=...`).
 - Full dashboard preview section with spot/futures switcher and recent activity.
 - Authentication (Login), Contact form, draft legal documents.
