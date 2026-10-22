@@ -15,6 +15,11 @@
 - `/api/market` serves the snapshot; `useMarketSnapshot` keeps pages fresh. Program pair lists are derived from the catalog.
 - Selection state for `/programs` lives in the URL (`?category=futures&size=25000`) and is validated by `src/lib/selection.ts`.
 
-## Quality checks (run with the site running)
-- `tests/e2e/overflow-check.mjs`: no sideways scrolling at 8 screen widths (needs `puppeteer-core` and `@sparticuz/chromium`, installed with `--no-save`).
-- `tests/e2e/html-order-check.mjs`: raw HTML is complete and ordered (no browser needed). Do not add a root `loading.tsx`: it makes pages stream content after the footer.
+## Quality checks
+See `tests/e2e/README.md`. Do not add a root `loading.tsx`: it makes pages stream their content after the footer (caught by `html-order-check.mjs`).
+
+## Performance and SEO decisions
+- Fonts are self-hosted through `next/font/local` (preloaded, size-matched fallback). CSS is inlined (`experimental.inlineCss`).
+- `htmlLimitedBots: /.*/` makes Next send title and description in `<head>` on dynamic pages (otherwise they are streamed after load).
+- Without `NEXT_PUBLIC_SITE_URL` the site is `noindex` and robots.txt disallows everything.
+- Production security headers (CSP, HSTS, COOP) are set in `next.config.mjs`. The CSP allows inline scripts and styles because Next's bootstrap needs them; a nonce-based policy would force dynamic rendering.

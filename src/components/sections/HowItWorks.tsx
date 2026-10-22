@@ -10,6 +10,8 @@ const steps = [
 ] as const;
 
 export function HowItWorks({ asPage = false }: { asPage?: boolean }) {
+  // On the standalone page the section title is the h1, so the step titles are h2; on the home page they are h3 under an h2.
+  const StepHeading = asPage ? "h2" : "h3";
   return (
     <section aria-labelledby="how-title" id="how-it-works" className={asPage ? "pt-10 sm:pt-14" : "pt-16 sm:pt-24"}>
       <Container>
@@ -26,10 +28,10 @@ export function HowItWorks({ asPage = false }: { asPage?: boolean }) {
               <span aria-hidden className="tabular inline-flex h-8 w-8 items-center justify-center rounded-full border border-line-strong font-mono text-sm text-accent-text">
                 {i + 1}
               </span>
-              <h3 className="mt-4 text-base font-semibold">
+              <StepHeading className="mt-4 text-base font-semibold">
                 <span className="sr-only">Step {i + 1}: </span>
                 {s.title}
-              </h3>
+              </StepHeading>
               <p className="mt-2 text-sm leading-relaxed text-fg-muted">{s.text}</p>
             </li>
           ))}

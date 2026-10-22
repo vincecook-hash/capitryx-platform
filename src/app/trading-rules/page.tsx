@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { RulesExplorer } from "@/components/rules/RulesExplorer";
 import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { resolveSelection } from "@/lib/selection";
 
-export const metadata: Metadata = {
-  title: "Trading Rules",
-  description: "Capitryx trading rules for spot and futures evaluations: limits, fees, leverage, liquidation, conduct, and exactly how a violation is determined.",
-};
+export const metadata: Metadata = pageMetadata({ title: "Trading Rules", description: "Capitryx trading rules for spot and futures evaluations: limits, fees, leverage, liquidation, conduct, and exactly how a violation is determined.", path: "/trading-rules" });
 
 export default async function TradingRulesPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;

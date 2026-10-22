@@ -1,0 +1,26 @@
+# Optional continuous integration. To enable it, move this file to .github/workflows/ci.yml
+# (pushing workflow files needs a GitHub token with the "workflow" scope, or `gh auth login`).
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - name: Raw-HTML check on the production build
+        run: |
+          npx next start -p 3100 -H 127.0.0.1 &
+          npx --yes wait-on http://127.0.0.1:3100
+          BASE=http://127.0.0.1:3100 node tests/e2e/html-order-check.mjs

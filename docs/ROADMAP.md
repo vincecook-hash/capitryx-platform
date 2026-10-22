@@ -12,6 +12,8 @@
 - Spot Trading and Futures Trading landing pages (all numbers read from config), About, Contact (honest: disabled until a message destination exists), Login (honest: no fake form), and the four draft legal documents with highlighted placeholders.
 - Removed the generic `loading.tsx` so every page sends complete, correctly ordered HTML (checked by `tests/e2e/html-order-check.mjs`).
 
+- Final pass: accessibility (axe), SEO (canonical, Open Graph, structured data, staging guard), performance (Lighthouse), security headers, dashboard Spot/Futures switcher with recent activity, checkout result pages (verified-paid-only), dependency audit, README and launch checklist.
+
 ## Next
 - Full dashboard preview section with spot/futures switcher and recent activity.
 - Real authentication and trader accounts (Login is a placeholder page until then).

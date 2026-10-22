@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: "About Capitryx",
-  description: "Capitryx is a crypto trader-evaluation platform in development, built around clear rules, honest numbers and risk-first design.",
-};
+export const metadata: Metadata = pageMetadata({ title: "About Capitryx", description: "Capitryx is a crypto trader-evaluation platform in development, built around clear rules, honest numbers and risk-first design.", path: "/about" });
 
 const principles = [
   { title: "Clear terms", text: "Every program states its targets, limits, fees and open questions before you pay." },

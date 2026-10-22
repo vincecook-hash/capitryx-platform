@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Configurator } from "@/components/configurator/Configurator";
 import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { resolveSelection } from "@/lib/selection";
 import { getMarketSnapshot } from "@/server/market-data";
 
-export const metadata: Metadata = {
-  title: "Trading Programs",
-  description: "Compare Capitryx crypto spot and futures evaluation programs: sizes, prices, trading rules and supported pairs.",
-};
+export const metadata: Metadata = pageMetadata({ title: "Trading Programs", description: "Compare Capitryx crypto spot and futures evaluation programs: sizes, prices, trading rules and supported pairs.", path: "/programs" });
 
 export default async function ProgramsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;

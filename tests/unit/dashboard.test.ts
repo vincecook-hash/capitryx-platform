@@ -37,3 +37,33 @@ describe("positionPnl", () => {
   it("shorts gain when price falls", () => expect(positionPnl({ ...base, side: "short", mark: 90 })).toBe(20));
   it("shorts lose when price rises", () => expect(positionPnl({ ...base, side: "short" })).toBe(-20));
 });
+
+import { demoActivity, demoDashboards, demoSpotDashboard } from "@/config/demo-dashboard";
+
+describe("spot dashboard preview", () => {
+  const v = buildDashboardView(demoSpotDashboard);
+
+  it("uses the spot program's own rules (4% daily, 8% max, 8% target)", () => {
+    expect(v.program.id).toBe("spot-25k");
+    expect(v.drawdown.dailyFloorUsd).toBe(25_900 - 1_000);
+    expect(v.drawdown.maxFloorUsd).toBe(25_000 - 2_000);
+    expect(v.profitTargetUsd).toBe(2_000);
+  });
+
+  it("has no leverage on any spot position", () => {
+    expect(v.positions.every((p) => p.leverage === null)).toBe(true);
+  });
+
+  it("stays internally consistent and inside every limit", () => {
+    expect(v.equityUsd).toBeCloseTo(demoSpotDashboard.balanceUsd + v.unrealizedPnlUsd, 6);
+    expect(v.drawdown.dailyBreached).toBe(false);
+    expect(v.drawdown.maxBreached).toBe(false);
+  });
+
+  it("has a dashboard and recent activity for both categories", () => {
+    for (const c of ["spot", "futures"] as const) {
+      expect(demoDashboards[c]).toBeDefined();
+      expect(demoActivity[c].length).toBeGreaterThanOrEqual(3);
+    }
+  });
+});

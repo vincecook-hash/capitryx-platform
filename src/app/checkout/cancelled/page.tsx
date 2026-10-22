@@ -1,5 +1,15 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { PaymentStatus } from "@/components/checkout/PaymentStatus";
+import { Container } from "@/components/ui/Container";
 
-export const metadata: Metadata = { title: "Checkout Cancelled" };
-export default function Page() { return <PagePlaceholder title="Checkout Cancelled" />; }
+export const metadata: Metadata = { title: "Checkout cancelled", robots: { index: false } };
+
+export default function Page() {
+  return (
+    <main id="main">
+      <Container className="py-10 sm:py-14">
+        <PaymentStatus state="cancelled" />
+      </Container>
+    </main>
+  );
+}

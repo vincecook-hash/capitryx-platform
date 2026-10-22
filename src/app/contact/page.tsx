@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ContactForm } from "@/components/checkout/ContactForm";
 import { Container } from "@/components/ui/Container";
 import { getContactSink } from "@/server/contact";
 
-export const metadata: Metadata = { title: "Contact", description: "Contact Capitryx with a question about evaluation programs." };
+export const metadata: Metadata = pageMetadata({ title: "Contact", description: "Contact Capitryx with a question about evaluation programs.", path: "/contact" });
 
 export default function ContactPage() {
   const enabled = getContactSink() !== null;

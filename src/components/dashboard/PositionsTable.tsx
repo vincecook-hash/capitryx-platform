@@ -8,6 +8,7 @@ const pnlClass = (v: number) => (v >= 0 ? "text-gain" : "text-loss");
  * sm and up: a real table, which scrolls inside its own box if space runs out.
  */
 export function PositionsTable({ positions }: { positions: PositionView[] }) {
+  const showLeverage = positions.some((p) => p.leverage);
   return (
     <>
       <ul className="space-y-3 sm:hidden" aria-label="Open positions (illustrative)">
@@ -48,7 +49,7 @@ export function PositionsTable({ positions }: { positions: PositionView[] }) {
               <th scope="col" className="py-2 pr-3 text-right font-medium">Size</th>
               <th scope="col" className="py-2 pr-3 text-right font-medium">Entry</th>
               <th scope="col" className="py-2 pr-3 text-right font-medium">Current</th>
-              <th scope="col" className="py-2 pr-3 text-right font-medium">Lev.</th>
+              {showLeverage && <th scope="col" className="py-2 pr-3 text-right font-medium">Lev.</th>}
               <th scope="col" className="py-2 text-right font-medium">P&amp;L</th>
             </tr>
           </thead>
@@ -60,7 +61,7 @@ export function PositionsTable({ positions }: { positions: PositionView[] }) {
                 <td className="tabular py-3 pr-3 text-right font-mono">{p.sizeLabel}</td>
                 <td className="tabular py-3 pr-3 text-right font-mono">{formatPrice(p.entry)}</td>
                 <td className="tabular py-3 pr-3 text-right font-mono">{formatPrice(p.mark)}</td>
-                <td className="tabular py-3 pr-3 text-right font-mono">{p.leverage ? `${p.leverage}x` : "N/A"}</td>
+                {showLeverage && <td className="tabular py-3 pr-3 text-right font-mono">{p.leverage ? `${p.leverage}x` : "N/A"}</td>}
                 <td className={cn("tabular py-3 text-right font-mono font-medium", pnlClass(p.pnlUsd))}>{formatSignedUsd(p.pnlUsd)}</td>
               </tr>
             ))}
